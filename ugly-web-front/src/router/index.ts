@@ -56,23 +56,6 @@ const routes = [
 
 // 需根据权限进行动态生成的路由
 const asyncRoutes = [
-  // {
-  //   path: '/',
-  //   component: Home,
-  //   name: '',
-  //   iconCls: 'el-icon-s-grid',
-  //   leaf: true,
-  //   children: [
-  //     {
-  //       name: '表格',
-  //       path: '/admin',
-  //       component: () => import('../views/AdminTable/index.vue'),
-  //       meta: {
-  //         roles: ['admin', 'editor']  // 该部分和权限相关
-  //       }
-  //     }
-  //   ]
-  // },
   {
     path: '/',
     component: Home,
@@ -100,84 +83,23 @@ const asyncRoutes = [
       }
     ]
   }, 
-  // {
-  //   path: '/',
-  //   component: Home,
-  //   name: '图表',
-  //   iconCls: 'el-icon-s-data',
-  //   leaf: false,
-  //   children: [
-  //     {
-  //       name: '图表Tab',
-  //       iconCls: 'el-icon-help',
-  //       path: '/chart',
-  //       component: () => import('../views/Charts/index.vue'),
-  //       meta: {
-  //         roles: ['admin']
-  //       }
-  //     },
-  //     {
-  //       name: '图标Icon',
-  //       iconCls: 'el-icon-bicycle',
-  //       path: '/icon',
-  //       component: () => import('../views/Icon/index.vue'),
-  //       meta: {
-  //         roles: ['admin', 'editor']
-  //       }
-  //     }
-  //   ]
-  // }, 
-  // {
-  //   path: '/',
-  //   component: Home,
-  //   name: '',
-  //   iconCls: 'el-icon-share',
-  //   leaf: true,
-  //   children: [
-  //     {
-  //       name: 'Form表单',
-  //       path: '/form',
-  //       component: () => import('../views/Form/index.vue'),
-  //       meta: {
-  //         roles: ['editor']
-  //       }
-  //     }
-  //   ]
-  // },
-  // {
-  //   path: '/',
-  //   component: Home,
-  //   name: '',
-  //   iconCls: 'el-icon-star-on',
-  //   leaf: true,
-  //   children: [
-  //     {
-  //       name: 'Vuex使用',
-  //       path: '/vuex',
-  //       component: () => import('../views/VuexRelated/index.vue'),
-  //       meta: {
-  //         roles: ['admin']
-  //       }
-  //     }
-  //   ]
-  // },
-  // {
-  //   path: '/',
-  //   component: Home,
-  //   name: '',
-  //   iconCls: 'el-icon-edit-outline',
-  //   leaf: true,
-  //   children: [
-  //     {
-  //       name: '富文本',
-  //       path: '/tiny',
-  //       component: () => import('../views/Tinymce/index.vue'),
-  //       meta: {
-  //         roles: ['admin', 'editor']
-  //       }
-  //     }
-  //   ]
-  // },
+  {
+    path: '/',
+    component: Home,
+    name: '',
+    iconCls: 'el-icon-edit-outline',
+    leaf: true,
+    children: [
+      {
+        name: '富文本',
+        path: '/tiny',
+        component: () => import('../views/Tinymce/index.vue'),
+        meta: {
+          roles: ['admin', 'editor']
+        }
+      }
+    ]
+  },
   {
     path: '*',
     redirect: '/404',  // 重定向到404页面

@@ -1,8 +1,6 @@
 <template>
   <div class="dash">
-    <div class="dashRow">
-      <swiper-img class="dashRowSwiper"></swiper-img>
-    </div>
+    <div class="dashRow"></div>
     <div class="dashYuchen">雨辰</div>
     <!-- 空白占位，方便后续内容拓展，同时防止页面下方被hidden -->
     <div class="dashBlock"></div>
@@ -11,12 +9,10 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import SwiperImg from './components/SwiperImg.vue'
+// import SwiperImg from './components/SwiperImg.vue'
 
 @Component({
-  components: { 
-    SwiperImg
-  }
+  components: { }
 })
 export default class DashBoard extends Vue {
   
