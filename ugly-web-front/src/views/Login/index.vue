@@ -96,8 +96,8 @@ export default {
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  background:#fff;
+  // height: 100%;
+  background:#3d4e66;
   // background-image: url('../../../public/img/background.jpeg');
   // background-size: 100% 100%;
   &Form {

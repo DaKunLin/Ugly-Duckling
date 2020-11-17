@@ -23,7 +23,9 @@
         </span>      
         <el-dropdown-menu slot="dropdown">
           <!-- <el-dropdown-item @click.native="dialogVisible = true">编辑</el-dropdown-item> -->
+          <el-dropdown-item >修改密码</el-dropdown-item>
           <el-dropdown-item @click.native="logOut">退出登录</el-dropdown-item>
+          <el-dropdown-item >关于我们</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -83,6 +85,7 @@ export default class HeadBar extends Vue {
   display: flex;
   flex-flow: row nowrap;
   line-height: 50px;
+  // background:#f1f1f1;
   // background-color: #20B2AA;
   // background-image: linear-gradient(to right,rgba(0,128,128, 0.8), rgba(255,248,220, 1));
 

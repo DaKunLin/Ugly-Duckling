@@ -1,7 +1,10 @@
 <template>
   <div class="dash">
-    <div class="dashRow"></div>
-    <div class="dashYuchen">雨辰</div>
+    <el-row class="dashRow">
+      <div class="title">我的便签</div>
+      <el-button type="primary" icon="el-icon-plus" size="mini" round>新增</el-button>
+      <el-button type="primary" icon="el-icon-orange" size="mini" round>回收站</el-button>
+    </el-row>
     <!-- 空白占位，方便后续内容拓展，同时防止页面下方被hidden -->
     <div class="dashBlock"></div>
   </div>
@@ -29,34 +32,21 @@ export default class DashBoard extends Vue {
   justify-content: space-around;
   align-items: center;
   margin: 30px auto;
-  font-size: 1.5rem;
-  &Yuchen{
-    color:red;
-  }
+  // font-size: 1.5rem;
+  
   &Row {
     width: 100%;
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    // flex-flow: row wrap;
+    // justify-content: space-between;
     align-items: center;
     // border: 2px solid red;
-
-    &Swiper {
-      width: 35%;
-      margin: 20px 0;
+    font-size:14px;
+    .title{
+      margin-right: 10px;
     }
-
     @media screen and (max-width:1000px) {
-      &Item {
-        width: 100%;
-        margin: 10px 0;
-      }
-
-      &Swiper {
-        width: 100%;
-      }
-
       &Clock {
         width: 100%;
       }
