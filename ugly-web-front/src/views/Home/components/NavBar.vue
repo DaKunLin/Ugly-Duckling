@@ -57,8 +57,6 @@ export default class NavBar extends Vue {
     this.reload()  // 点击侧边栏页面重载
   }
   public mounted(){
-    console.log(this.$router.options)
-    console.log(this.$router.options.routes)
   }
 }
 

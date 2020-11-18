@@ -8,12 +8,6 @@
       <el-form-item prop="pass">
         <el-input type="password" v-model="ruleForm.pass" placeholder="请输入密码" autocomplete="off"></el-input>
       </el-form-item>
-      <!-- <div class="loginRem">
-        <el-checkbox label="记住密码 (账号/密码:admin/admin或editor/editor)" v-model="remember"></el-checkbox>
-      </div>
-      <div class="loginRem" style="font-size: 0.3rem; margin-top:-15px">
-        注: 两个账号对应不同的路由权限
-      </div> -->
       <el-form-item>
         <el-button class="loginButton" type="primary" @click="submitForm('ruleForm')" :loading="logining">登录</el-button>
       </el-form-item>
@@ -24,7 +18,6 @@
 <script>
 import service from '@/service/index'
 import { mapGetters, mapActions } from 'vuex'
-import { asyncRoutes } from '@/router/index'
 
 export default {
   data() {
@@ -52,28 +45,29 @@ export default {
         if (valid) {
           let params = Object.assign({}, this.ruleForm)
           this.logining = true;
-          service.login(params).then(res => {
-            let { code, msg = '', result = {} } = res['data'];
-            if (code === 0) {
-              sessionStorage.setItem('name', this.ruleForm.name)
-              sessionStorage.setItem('pass', this.ruleForm.pass)
-              this.$router.push('/dashboard')
-              // this.$store.dispatch('app/UpdateRememberPass', this.remember)
-            } else {
-              this.$message({
-                message: msg,
-                type: 'error',
-                duration: 1000
-              })
-            }
-            this.logining = false
-          }).catch(err => {
-            this.$message({
-              message: err,
-              type: 'error',
-              duration: 1000
-            })
-          });
+          // service.login(params).then(res => {
+          //   let { code, msg = '', result = {} } = res['data'];
+          //   if (code === 0) {
+              
+          //     // this.$store.dispatch('app/UpdateRememberPass', this.remember)
+          //   } else {
+          //     this.$message({
+          //       message: msg,
+          //       type: 'error',
+          //       duration: 1000
+          //     })
+          //   }
+          //   this.logining = false
+          // }).catch(err => {
+          //   this.$message({
+          //     message: err,
+          //     type: 'error',
+          //     duration: 1000
+          //   })
+          // });
+          sessionStorage.setItem('name', this.ruleForm.name)
+          sessionStorage.setItem('pass', this.ruleForm.pass)
+          this.$router.push('/dashboard')
         } else {
           this.$message({
             message: 'error submit!!',
