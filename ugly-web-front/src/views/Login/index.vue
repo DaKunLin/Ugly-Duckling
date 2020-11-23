@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import service from '@/service/index'
+// import service from '@/service/index'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {

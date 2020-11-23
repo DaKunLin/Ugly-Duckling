@@ -83,23 +83,23 @@ const asyncRoutes = [
       }
     ]
   }, 
-  {
-    path: '/',
-    component: Home,
-    name: '',
-    iconCls: 'el-icon-edit-outline',
-    leaf: true,
-    children: [
-      {
-        name: '富文本',
-        path: '/tiny',
-        component: () => import('../views/Tinymce/index.vue'),
-        meta: {
-          roles: ['admin', 'editor']
-        }
-      }
-    ]
-  },
+  // {
+  //   path: '/',
+  //   component: Home,
+  //   name: '',
+  //   iconCls: 'el-icon-edit-outline',
+  //   leaf: true,
+  //   children: [
+  //     {
+  //       name: '富文本',
+  //       path: '/tiny',
+  //       component: () => import('../views/Tinymce/index.vue'),
+  //       meta: {
+  //         roles: ['admin', 'editor']
+  //       }
+  //     }
+  //   ]
+  // },
   {
     path: '*',
     redirect: '/404',  // 重定向到404页面
@@ -129,7 +129,9 @@ router.beforeEach((to, from, next) => {
     if (flag && to.path !== '/login') {
       flag = false
       router['options'].routes = routes
-      let generateAsyncRoutes = generateRoutes(asyncRoutes, <string>sessionStorage.getItem('name'))  // 根据登录角色生成动态路由
+      // let generateAsyncRoutes = generateRoutes(asyncRoutes, <string>sessionStorage.getItem('name'))  // 根据登录角色生成动态路由
+
+      let generateAsyncRoutes = generateRoutes(asyncRoutes, "admin")  // 根据登录角色生成动态路由
       console.log('访问====')
       console.log(generateAsyncRoutes)
       router.addRoutes(generateAsyncRoutes)
