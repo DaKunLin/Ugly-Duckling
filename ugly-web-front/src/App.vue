@@ -4,6 +4,7 @@
       <router-view />
     </transition>
   </div>
+  
 </template>
 
 <style lang="less">
