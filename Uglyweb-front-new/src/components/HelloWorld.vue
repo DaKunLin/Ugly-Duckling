@@ -33,11 +33,39 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Watch, Prop, Vue, Emit} from 'vue-property-decorator'
 
-@Component
+@Component({
+  // 所有组件选项可以写这里
+  components: {
+    // HelloWorld
+  }
+})
 export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
+   // prop的类型和默认值 
+  @Prop({type: String, default: false, required:false}) msg!: string;
+
+  //注册data
+  public name:string = 'Home'
+  public someValue:string = '2hgj'
+  // watch监听事件
+  @Watch('someValue', {deep:  true })
+  valueChange(val:string, oldVal:string) {
+    
+  }
+  //computed ts用法
+  get computedObj(){
+
+  }
+  //$emit事件的使用
+  @Emit('demo-log')
+  triggerEmit(n: any) {
+    console.log('hhh')
+  }
+  //注册methods方法
+  public change():void{
+
+  }
 }
 </script>
 

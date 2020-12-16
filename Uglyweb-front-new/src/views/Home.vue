@@ -5,14 +5,18 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 // @ is an alias to /src
+// import Vue from 'vue'
+import { Component, Watch, Prop, Vue} from 'vue-property-decorator'
 import HelloWorld from '@/components/HelloWorld.vue'
-
-export default {
-  name: 'Home',
+@Component({
+  // 所有组件选项可以写这里
   components: {
     HelloWorld
   }
+})
+export default class Home extends Vue {
+
 }
 </script>
