@@ -2,7 +2,7 @@
   <div id="home">
     <el-container>
       <el-header>Header</el-header>
-      <el-container>
+      <el-container class="contentDiv">
         <el-aside>
           <el-button type="primary" :class="['collapse',isCollapse ? 'active' : '']" @click="change"
             ><i class="el-icon-arrow-left"></i
@@ -31,7 +31,7 @@
             </el-menu-item>
           </el-menu>
         </el-aside>
-        <el-main>
+        <el-main class="mainCon">
           <router-view />
         </el-main>
       </el-container>
@@ -76,8 +76,12 @@ export default class Home extends Vue {
   text-align: center;
   line-height: 60px;
 }
-.el-container {
-  height: 100%;
+.el-container{
+  height:100%
+}
+.contentDiv {
+    height:calc(100% - 60px);
+    box-sizing: border-box;
 }
 .el-aside {
   background-color: #d3dce6;

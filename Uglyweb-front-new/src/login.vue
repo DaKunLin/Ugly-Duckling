@@ -64,6 +64,10 @@ export default class Home extends Vue {
 }
 </script>
 <style lang="less" scope>
+* {
+  padding: 0;
+  margin: 0;
+}
 #login{
   margin:0 auto;
   background: url('./assets/login_bg.jpg');

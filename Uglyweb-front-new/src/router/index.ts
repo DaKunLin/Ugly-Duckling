@@ -7,7 +7,14 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'home',
-    component: () => import(/* webpackChunkName: "about" */ '../views/index.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/index.vue'),
+    children:[ 
+      {
+        path: '/customInfo',
+        name: 'customInfo',
+        component: () => import(/* webpackChunkName: "about" */ '../views/customInfo/index.vue')
+      }
+    ]
   },
   //login登录页面
   {
