@@ -3,47 +3,37 @@
     <el-container>
       <el-header>Header</el-header>
       <el-container>
-        <el-aside width="200px" >
+        <el-aside>
+          <el-button type="primary" :class="['collapse',isCollapse ? 'active' : '']" @click="change"
+            ><i class="el-icon-arrow-left"></i
+          ></el-button>
           <el-menu
-            default-active="1-4-1"
+            background-color="#545c64"
+            text-color="#fff"
+            active-text-color="#ffd04b"
+            default-active="product"
             class="el-menu-vertical-demo asideMenu"
             @open="handleOpen"
             @close="handleClose"
             :collapse="isCollapse"
           >
-            <el-submenu index="1">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span slot="title">导航一</span>
-              </template>
-              <el-menu-item-group>
-                <span slot="title">分组一</span>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
-              </el-menu-item-group>
-              <el-menu-item-group title="分组2">
-                <el-menu-item index="1-3">选项3</el-menu-item>
-              </el-menu-item-group>
-              <el-submenu index="1-4">
-                <span slot="title">选项4</span>
-                <el-menu-item index="1-4-1">选项1</el-menu-item>
-              </el-submenu>
-            </el-submenu>
-            <el-menu-item index="2">
+            <el-menu-item index="product">
               <i class="el-icon-menu"></i>
-              <span slot="title">导航二</span>
+              <span slot="title">产品</span>
             </el-menu-item>
-            <el-menu-item index="3" disabled>
+            <el-menu-item index="dic">
               <i class="el-icon-document"></i>
-              <span slot="title">导航三</span>
+              <span slot="title">字典</span>
             </el-menu-item>
-            <el-menu-item index="4">
+            <el-menu-item index="customInfo">
               <i class="el-icon-setting"></i>
-              <span slot="title">导航四</span>
+              <span slot="title">客户信息</span>  
             </el-menu-item>
           </el-menu>
         </el-aside>
-        <el-main><router-view /></el-main>
+        <el-main>
+          <router-view />
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -58,15 +48,20 @@ import { Component, Watch, Prop, Vue } from "vue-property-decorator";
   components: {},
 })
 export default class Home extends Vue {
-  handleOpen(key:string, keyPath:string) {
-        console.log(key, keyPath);
+  public isCollapse:boolean = false;
+
+  change(){
+    this.isCollapse = !this.isCollapse
   }
-  handleClose(key:string, keyPath:string) {
+  handleOpen(key: string, keyPath: string) {
+    console.log(key, keyPath);
+  }
+  handleClose(key: string, keyPath: string) {
     console.log(key, keyPath);
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scope>
 * {
   padding: 0;
   margin: 0;
@@ -86,10 +81,34 @@ export default class Home extends Vue {
 }
 .el-aside {
   background-color: #d3dce6;
+  overflow: inherit;
   color: #333;
   text-align: center;
+  width: auto !important;
+  position: relative;
+  .collapse {
+    position: absolute;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 50%;
+    z-index: 100;
+    font-size: 20px;
+    color: #606266;
+    right: -15px;
+    color: white;
+    top: 50%;
+    margin-top: -15px;
+  }
+  .collapse.active{
+    transform:rotate(180deg);
+  }
 }
-
+.el-menu-item {
+  // padding:0 20px 0 0
+  text-align: left;
+}
 .el-main {
   background-color: #e9eef3;
   color: #333;
@@ -97,13 +116,16 @@ export default class Home extends Vue {
   line-height: 160px;
 }
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
   min-height: 400px;
 }
 body > .el-container {
   margin-bottom: 40px;
 }
-.asideMenu{
-  height:100%
+.asideMenu {
+  height: 100%;
 }
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 126px;
+    min-height: 400px;
+  }
 </style>
