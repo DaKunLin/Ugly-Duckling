@@ -1,6 +1,7 @@
 
 module.exports = {
     lintOnSave: false,//去掉eslint
+    publicPath: './',
     devServer: {
       port:80,
       proxy: {

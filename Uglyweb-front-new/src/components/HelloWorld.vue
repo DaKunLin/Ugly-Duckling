@@ -48,13 +48,14 @@ export default class HelloWorld extends Vue {
   //注册data
   public name:string = 'Home'
   public someValue:string = '2hgj'
+  
+  //computed ts用法
+  get qq(){
+    return `123${this.someValue}`
+  }
   // watch监听事件
   @Watch('someValue', {deep:  true })
   valueChange(val:string, oldVal:string) {
-    
-  }
-  //computed ts用法
-  get computedObj(){
 
   }
   //$emit事件的使用
